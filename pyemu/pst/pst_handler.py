@@ -57,6 +57,17 @@ class Pst(object):
                 self.flex_load(filename)
             else:
                 self.load(filename)
+        else:
+            self.parameter_data = pd.DataFrame(data=None,
+                                               columns=self.par_fieldnames)
+            self.parameter_groups = pd.DataFrame(data=None,
+                                                 columns=self.pargp_fieldnames)
+            self.prior_information = pd.DataFrame(data=None,
+                                                  columns=self.prior_fieldnames)
+
+            self.template_files = []
+            self.instruction_files = []
+            self.model_command = []
 
     def __setattr__(self, key, value):
         if key == "model_command":
